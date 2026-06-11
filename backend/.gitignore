@@ -1,0 +1,32 @@
+# --- Python Bytecode ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Environment & Virtual Envs ---
+.venv/
+venv/
+env/
+.env
+.env.example
+
+# --- Alembic ---
+# We usually want to keep the versions/ folder, but ignore the cache
+alembic/__pycache__/
+alembic/versions/
+alembic.ini
+
+
+# --- Databases (If using SQLite) ---
+*.db
+*.sqlite3
+
+# --- IDEs & OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- AI/Large Files (Common in AI projects) ---
+*.log
+.cache/
