@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai_agent_core"
+version = "0.2.0"
+description = "A modular, LangGraph-powered AI agent system with dual-mode memory and event streaming."
+authors = [
+    { name = "Antigravity", email = "antigravity@google.com" }
+]
+readme = "README.md"
+requires-python = ">=3.12"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "pydantic>=2.0.0",
+    "langchain-core~=0.3.37",
+    "langchain-community~=0.3.18",
+    "langgraph~=0.2.39",
+    "langchain-openai~=0.2.14",
+    "langchain-google-genai~=2.0.1",
+    "langchain-cerebras~=0.4.0",
+    "langchain-groq~=0.2.0",
+    "langchain-ollama~=0.2.0",
+    "python-dotenv>=1.0.0",
+    "typing-extensions>=4.0.0"
+]
+
+[tool.setuptools]
+packages = ["ai_agent_core"]
+
+[tool.setuptools.package-data]
+"*" = ["*.py"]

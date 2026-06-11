@@ -30,3 +30,5 @@ Thumbs.db
 # --- AI/Large Files (Common in AI projects) ---
 *.log
 .cache/
+
+.pytest_cache/

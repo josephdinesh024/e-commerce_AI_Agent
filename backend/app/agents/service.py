@@ -223,19 +223,25 @@ tools = [
 ]
 
 checkpointer = MemorySaver()
+agent = None
 
-agent = AgentCore(
-    tools=tools,
-    prompt_template=SYSTEM_PROMPT,
-    response_schema=ECommerceResponse,
-    llm_name="ecom_agent",
-    llm_config={
-        "provider": "cerebras",
-        "model": settings.CEREBRAS_MODEL_NAME,
-        "api_key": settings.CEREBRAS_API_KEY
-    },
-    checkpointer=checkpointer
-)
+
+def get_agent():
+    global agent
+    if agent is None:
+        agent = AgentCore(
+            tools=tools,
+            prompt_template=SYSTEM_PROMPT,
+            response_schema=ECommerceResponse,
+            llm_name="ecom_agent",
+            llm_config={
+                "provider": "cerebras",
+                "model": settings.CEREBRAS_MODEL_NAME,
+                "api_key": settings.CEREBRAS_API_KEY,
+            },
+            checkpointer=checkpointer,
+        )
+    return agent
 
 
 # ---------------------------------------------------------------------------
@@ -276,7 +282,7 @@ async def AgentCoreService(
 ) -> dict:
     try:
         formatted = format_message_with_context(message, session, page_type, route, mode)
-        response = await agent.run_agent(message=formatted, session_id=session)
+        response = await get_agent().run_agent(message=formatted, session_id=session)
         return response
     except Exception as e:
         return {"message": f"Agent error: {str(e)}", "action": [], "html_content": ""}
@@ -291,7 +297,7 @@ async def AgentCoreServiceStream(
 ):
     try:
         formatted = format_message_with_context(message, session, page_type, route, mode)
-        async for event in agent.astream_agent(message=formatted, session_id=session):
+        async for event in get_agent().astream_agent(message=formatted, session_id=session):
             yield f"data: {json.dumps(event)}\n\n"
     except Exception as e:
         yield f"data: {json.dumps({'type': 'error', 'data': str(e)})}\n\n"

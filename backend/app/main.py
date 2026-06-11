@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.db import engine, Base
-from app.routes import product, review, cart, address, order, chat, context, unified, user
+from app.routes import product, review, cart, address, order, chat, user
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
@@ -24,8 +24,6 @@ app.include_router(cart.router)
 app.include_router(address.router)
 app.include_router(order.router)
 app.include_router(chat.router)
-app.include_router(context.router)
-app.include_router(unified.router)
 app.include_router(user.router)
 
 @app.get("/")

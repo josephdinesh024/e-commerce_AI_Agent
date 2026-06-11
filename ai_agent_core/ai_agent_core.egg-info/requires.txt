@@ -1,0 +1,11 @@
+pydantic>=2.0.0
+langchain-core~=0.3.37
+langchain-community~=0.3.18
+langgraph~=0.2.39
+langchain-openai~=0.2.14
+langchain-google-genai~=2.0.1
+langchain-cerebras~=0.4.0
+langchain-groq~=0.2.0
+langchain-ollama~=0.2.0
+python-dotenv>=1.0.0
+typing-extensions>=4.0.0

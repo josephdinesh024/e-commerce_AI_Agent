@@ -17,6 +17,10 @@ class Settings(BaseSettings):
     GOOGLE_API_KEY: str
     GOOGLE_MODEL_NAME: str =  "gemini-3-pro-preview"
     
+    # To test API endpoints    API_MODE: str = "http"
+    # API_MODE: str = "testclient"
+    API_MODE: str = "http"
+    
     class Config:
         env_file = ".env"
 

@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: ai_agent_core
+Version: 0.2.0
+Summary: A modular, LangGraph-powered AI agent system with dual-mode memory and event streaming.
+Author-email: Antigravity <antigravity@google.com>
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: langchain-core~=0.3.37
+Requires-Dist: langchain-community~=0.3.18
+Requires-Dist: langgraph~=0.2.39
+Requires-Dist: langchain-openai~=0.2.14
+Requires-Dist: langchain-google-genai~=2.0.1
+Requires-Dist: langchain-cerebras~=0.4.0
+Requires-Dist: langchain-groq~=0.2.0
+Requires-Dist: langchain-ollama~=0.2.0
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: typing-extensions>=4.0.0
