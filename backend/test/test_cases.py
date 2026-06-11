@@ -104,20 +104,20 @@ VALIDATION_TEST_CASES = [
 
 AUTH_TEST_CASES = [
 
-    # ApiCase(
-    #     id            = "register user",
-    #     method        = "post",
-    #     endpoint      = "/user/register",
-    #     body          = {
-    #         "email": "testuser_api@example.com",
-    #         "full_name": "Test User API",
-    #         "username": "testuser_api",
-    #         "password": "password123",
-    #         "phone": "1234567890"
-    #     },
-    #     expected_status = 200,
-    #     contains      = {"email": "testuser_api@example.com"},
-    # ),
+    ApiCase(
+        id            = "register user",
+        method        = "post",
+        endpoint      = "/user/register",
+        body          = {
+            "email": "testuser_api@example.com",
+            "full_name": "Test User API",
+            "username": "testuser_api",
+            "password": "password123",
+            "phone": "1234567890"
+        },
+        expected_status = 200,
+        contains      = {"email": "testuser_api@example.com"},
+    ),
     ApiCase(
         id            = "login user",
         method        = "post",
