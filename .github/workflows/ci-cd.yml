@@ -36,10 +36,9 @@ jobs:
           cache: 'pip' # Use setup-python's built-in pip caching
 
       - name: Install dependencies
-        working-directory: ./backend
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r backend/requirements.txt
 
       # - name: Run Database Migrations
       #   working-directory: ./backend
